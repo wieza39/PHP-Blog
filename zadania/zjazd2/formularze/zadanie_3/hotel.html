@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel</title>
+</head>
+
+<body>
+    <form action="guests.php" method="post">
+        <h1>Reservation Form</h1>
+        <h3>Reservation data</h3>
+        <table>
+            <tr>
+                <td>Guests: </td>
+                <td><input list="guests" name="guests">
+                    <datalist id="guests">
+                        <option value="1">
+                        <option value="2">
+                        <option value="3">
+                        <option value="4">
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <td>email: </td>
+                <td><input type="text" name="email"></td>
+            </tr>
+            <tr>
+                <td>date of check-in: </td>
+                <td><input type="date" name="check_in"></td>
+                <td>date of check-out: </td>
+                <td><input type="date" name="check_out"></td>
+            </tr>
+        </table>
+
+        <table>
+            <h3>Payment details</h3>
+            <tr>
+                <td>Credit card number: </td>
+                <td><input type="text" name="creditCard"></td>
+            </tr>
+            <tr>
+                <td>Credit card expiry date: </td>
+                <td><input type="month" name="creditCardDate"></td>
+                <td>CCV: </td>
+                <td><input type="text" name="creditCardCCV"></td>
+            </tr>
+        </table>
+        <h3>Additional features</h3>
+        <table>
+            <tr>
+                <td>Choose facilities: </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="facilities[]" value="Air-condition">air-condition</td>
+                <td><input type="checkbox" name="facilities[]" value="Sauna">sauna</td>
+                <td><input type="checkbox" name="facilities[]" value="PlayStation4">PlayStation4</td>
+                <td><input type="checkbox" name="facilities[]" value="Balcony">Balcony</td>
+                <td><input type="checkbox" name="facilities[]" value="Airport transportation">Airport transportation
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="facilities[]" value="Room-service">Room-service</td>
+                <td><input type="checkbox" name="facilities[]" value="Gym access">Gym access</td>
+                <td><input type="checkbox" name="facilities[]" value="Parking">Parking</td>
+                <td><input type="checkbox" name="facilities[]" value="Open-bar">Open-bar</td>
+                <td><input type="checkbox" name="facilities[]" value="Breakfast">Breakfast</td>
+            </tr>
+            <tr>
+                <td>Extra bed: </td>
+                <td><input type="radio" name="extraBed" value="Yes">Yes</td>
+                <td><input type="radio" name="extraBed" value="No">No</td>
+            </tr>
+        </table>
+        <input type="submit" value="Next">
+    </form>
+</body>
+
+</html>
