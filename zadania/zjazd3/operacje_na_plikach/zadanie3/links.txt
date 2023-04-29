@@ -1,0 +1,3 @@
+http://www.google.com;Google
+http://www.github.com;Github
+http://www.youtube.com;YouTube
