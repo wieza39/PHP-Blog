@@ -61,20 +61,76 @@ nav {
 
 		.menu {
 			padding: 0 50px;
+
 			.menu-list {
 				display: flex;
 				list-style-type: none;
 
 				li {
+					.dropdown {
+						display: none;
+						list-style-type: none;
+
+						&:hover {
+							display: block;
+							position: absolute;
+							z-index: 2;
+							background-color: $bg-element;
+							margin-top: 15px;
+							
+							li {
+								a {
+									margin-top: 5px;
+									padding: 5px 5px;
+									font-size: 14px;
+									list-style-type: none;
+									color: $violet;
+								}
+
+								a:hover {
+									color: $bg-element;
+								}
+							}
+
+							li:hover {
+								background-color: $violet;
+							}
+						}
+					}
+
 					.menu-list-opt {
-						padding: 0 10px;
+						padding: 20px 10px;
 						font-size: 14px;
 						color: $light-violet;
 						transition: 0.3s;
-					}
 
-					.menu-list-opt:hover {
-						color: $violet;
+						&:hover {
+							background-color: $violet;
+							padding: 20px 10px;
+							color: $light-violet;
+
+							~ .dropdown,
+							.dropdown:hover {
+								display: block;
+								position: absolute;
+								z-index: 2;
+								background-color: $bg-element;
+								margin-top: 15px;
+								
+								li {
+									a {
+										margin-top: 5px;
+										padding: 5px 5px;
+										font-size: 14px;
+										list-style-type: none;
+										color: $violet;
+									}
+								}
+								li:hover {
+									background-color: $violet;
+								}
+							}
+						}
 					}
 
 					#login-btn {
@@ -113,7 +169,7 @@ main {
 	box-shadow: 0px 0px 5px $grey;
 	background-color: $bg-element;
 
-	.login-header {
+	.h3-header {
 		margin-bottom: 30px;
 	}
 
@@ -214,6 +270,7 @@ main {
 .main-post-container {
 	justify-content: flex-start;
 	align-items: flex-start;
+	padding-bottom: 40px;
 
 	.post-header {
 		display: flex;
@@ -306,18 +363,22 @@ main {
 
 		.post-comment {
 			display: flex;
+			width: 100vw;
 			border-top: 3px solid $bg-color;
 			background-color: $bg-element;
 			padding: 40px 100px;
 			margin: 5px 0;
 
 			.post-comment-header {
+				width: 150px;
+				border-right: 1px solid $violet;
 				.post-comment-profile-img {
 					width: 50px;
 					height: 50px;
 				}
 				.post-comment-author {
 					padding: 5px 0;
+					padding-right: 10px;
 					text-transform: uppercase;
 					font-weight: 700;
 					color: $violet;
@@ -326,6 +387,7 @@ main {
 
 			.post-comment-content {
 				color: $text;
+				margin-left: 30px;
 
 				.post-comment-date {
 					font-size: 14px;
@@ -338,12 +400,122 @@ main {
 				justify-content: space-evenly;
 				column-gap: 10px;
 				flex-wrap: nowrap;
+				margin-left: auto;
 				border: none;
 				font-size: 18px;
 				color: $violet;
 
 				i:hover {
 					cursor: pointer;
+				}
+				form {
+					button {
+						background-color: transparent;
+						border: none;
+						outline: none;
+						font-size: 18px;
+						color: $violet;
+					}
+				}
+			}
+		}
+	}
+}
+
+// CONTACT PAGE
+
+.main-contact-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+
+	.contact-header {
+		height: 20vh;
+		width: 100%;
+	}
+
+	.contact {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		background-color: #81a4d3;
+
+		.contact-form {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			width: 50%;
+			border-right: 1px solid $violet;
+
+			.h3-header {
+				font-size: 24px;
+				margin-bottom: 50px;
+			}
+
+			form {
+				.contact-fields {
+					padding: 5px 0;
+					input {
+						padding: 10px 10px;
+						border: none;
+						background-color: $text-area;
+						width: 100%;
+						outline: none;
+						resize: none;
+					}
+
+					input:focus {
+						border: 2px solid $violet;
+						background-color: $text-area-focus;
+					}
+
+					textarea {
+						padding: 10px 10px;
+						border: none;
+						background-color: $text-area;
+						width: 100%;
+						outline: none;
+						resize: none;
+					}
+
+					textarea:focus {
+						border: 2px solid $violet;
+						background-color: $text-area-focus;
+					}
+				}
+				div {
+					.form-btn {
+						margin-top: 10px;
+					}
+				}
+			}
+		}
+
+		.contact-info {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			width: 50%;
+
+			.h3-header {
+				font-size: 24px;
+				margin-bottom: 50px;
+			}
+
+			.contact-general-info {
+				line-height: 30px;
+				margin-bottom: 10px;
+				color: $text;
+			}
+
+			.contact-social {
+				.fa-brands {
+					font-size: 30px;
+					padding: 0 5px;
+					color: $violet;
 				}
 			}
 		}

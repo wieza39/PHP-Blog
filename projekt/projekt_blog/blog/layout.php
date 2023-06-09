@@ -1,5 +1,7 @@
 <?php
-
+include '../includes/open_db.php';
+$query = "SELECT * FROM posts ORDER BY created_at DESC";
+$result = mysqli_query($connection, $query);
 ?>
 
 <main class="main-layout-container">
@@ -24,54 +26,29 @@
     </div>
 
     <div class="posts-container">
-        <!-- Do usuniecie -->
-        <div class="post-box"><a href="post.php">
-                <div class="post-box-header">
-                    <div class="post-box-title">Some Title</div>
-                    <div class="post-box-date">dd-mm-yyyy</div>
-                </div>
-                <div class="post-box-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe adipisci provident sunt quidem voluptate ratione accusamus, pariatur voluptas quos dolorum voluptatibus tempora eos, quam doloribus ipsa explicabo, velit aliquam aliquid quaerat! Sit eos ut nisi. Accusamus, possimus. Hic, fugiat doloremque?</div>
-            </a></div>
-        <div class="post-box"><a href="">
-                <div class="post-box-header">
-                    <div class="post-box-title">Some Title</div>
-                    <div class="post-box-date">dd-mm-yyyy</div>
-                </div>
-                <div class="post-box-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe adipisci provident sunt quidem voluptate ratione accusamus, pariatur voluptas quos dolorum voluptatibus tempora eos, quam doloribus ipsa explicabo, velit aliquam aliquid quaerat! Sit eos ut nisi. Accusamus, possimus. Hic, fugiat doloremque?</div>
-            </a></div>
-        <div class="post-box"><a href="">
-                <div class="post-box-header">
-                    <div class="post-box-title">Some Title</div>
-                    <div class="post-box-date">dd-mm-yyyy</div>
-                </div>
-                <div class="post-box-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe adipisci provident sunt quidem voluptate ratione accusamus, pariatur voluptas quos dolorum voluptatibus tempora eos, quam doloribus ipsa explicabo, velit aliquam aliquid quaerat! Sit eos ut nisi. Accusamus, possimus. Hic, fugiat doloremque?</div>
-            </a></div>
-        <!-- do usuniecie  -->
-        <!-- <?php
 
-                // $query = "SELECT * FROM posts";
-                // $result = mysqli_query($connection, $query);
+        <?php
+        if (mysqli_num_rows($result) > 0) {
 
-                // // Check if there are any posts
-                // if (mysqli_num_rows($result) > 0) {
-                //     // Loop through each post and generate the HTML code
-                //     while ($row = mysqli_fetch_assoc($result)) {
-                //         $title = $row['title'];
-                //         $content = $row['content'];
+            while ($row = mysqli_fetch_assoc($result)) {
+                $postID = $row['id'];
+                $title = $row['title'];
+                $date = $row['created_at'];
+                $summary = $row['summary'];
 
-                //         // Generate the HTML code for each post
-                //         echo '<div class="post-box">';
-                //         echo '<div class="post-box-title">' . $title . '</div>';
-                //         echo '<div class="post-box-text">' . $content . '</div>';
-                //         echo '</div>';
-                //     }
-                // } else {
-                //     // Display a message if there are no posts
-                //     echo 'No posts found.';
-                // }
-
-                // // Close the database connection
-                // mysqli_close($connection);
-                ?> -->
+                echo '<div class="post-box"><a href="post.php?id=' . $postID . '">';
+                echo '<div class="post-box-header">';
+                echo '<div class="post-box-title">' . $title . '</div>';
+                echo '<div class="post-box-date">' . $date . '</div>';
+                echo '</div>';
+                echo '<div class="post-box-text">' . $summary . '</div>';
+                echo '</a></div>';
+            }
+        }
+        ?>
     </div>
 </main>
+
+<?php
+include '../includes/close_db.php';
+?>

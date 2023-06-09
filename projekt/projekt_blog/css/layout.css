@@ -62,14 +62,60 @@ nav .nav-bar .menu .menu-list {
   display: flex;
   list-style-type: none;
 }
+nav .nav-bar .menu .menu-list li .dropdown {
+  display: none;
+  list-style-type: none;
+}
+nav .nav-bar .menu .menu-list li .dropdown:hover {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  background-color: #b3c5f4;
+  margin-top: 15px;
+}
+nav .nav-bar .menu .menu-list li .dropdown:hover li a {
+  margin-top: 5px;
+  padding: 5px 5px;
+  font-size: 14px;
+  list-style-type: none;
+  color: rgb(130, 86, 143);
+}
+nav .nav-bar .menu .menu-list li .dropdown:hover li a:hover {
+  color: #b3c5f4;
+}
+nav .nav-bar .menu .menu-list li .dropdown:hover li:hover {
+  background-color: rgb(130, 86, 143);
+}
 nav .nav-bar .menu .menu-list li .menu-list-opt {
-  padding: 0 10px;
+  padding: 20px 10px;
   font-size: 14px;
   color: #d1d2f9;
   transition: 0.3s;
 }
 nav .nav-bar .menu .menu-list li .menu-list-opt:hover {
+  background-color: rgb(130, 86, 143);
+  padding: 20px 10px;
+  color: #d1d2f9;
+}
+nav .nav-bar .menu .menu-list li .menu-list-opt:hover ~ .dropdown,
+nav .nav-bar .menu .menu-list li .menu-list-opt:hover .dropdown:hover {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  background-color: #b3c5f4;
+  margin-top: 15px;
+}
+nav .nav-bar .menu .menu-list li .menu-list-opt:hover ~ .dropdown li a,
+nav .nav-bar .menu .menu-list li .menu-list-opt:hover .dropdown:hover li a {
+  margin-top: 5px;
+  padding: 5px 5px;
+  font-size: 14px;
+  list-style-type: none;
   color: rgb(130, 86, 143);
+}
+nav .nav-bar .menu .menu-list li .menu-list-opt:hover ~ .dropdown li:hover,
+nav .nav-bar .menu .menu-list li .menu-list-opt:hover .dropdown:hover li:hover {
+  background-color: rgb(130, 86, 143);
 }
 nav .nav-bar .menu .menu-list li #login-btn {
   color: rgb(130, 86, 143);
@@ -100,7 +146,7 @@ main {
   box-shadow: 0px 0px 5px #c9cad9;
   background-color: #b3c5f4;
 }
-.login-container .login-header {
+.login-container .h3-header {
   margin-bottom: 30px;
 }
 .login-container .login-error {
@@ -178,6 +224,7 @@ main {
 .main-post-container {
   justify-content: flex-start;
   align-items: flex-start;
+  padding-bottom: 40px;
 }
 .main-post-container .post-header {
   display: flex;
@@ -244,10 +291,15 @@ main {
 }
 .main-post-container .post-comment-section .post-comment {
   display: flex;
+  width: 100vw;
   border-top: 3px solid #a3bcf9;
   background-color: #b3c5f4;
   padding: 40px 100px;
   margin: 5px 0;
+}
+.main-post-container .post-comment-section .post-comment .post-comment-header {
+  width: 150px;
+  border-right: 1px solid rgb(130, 86, 143);
 }
 .main-post-container .post-comment-section .post-comment .post-comment-header .post-comment-profile-img {
   width: 50px;
@@ -255,12 +307,14 @@ main {
 }
 .main-post-container .post-comment-section .post-comment .post-comment-header .post-comment-author {
   padding: 5px 0;
+  padding-right: 10px;
   text-transform: uppercase;
   font-weight: 700;
   color: rgb(130, 86, 143);
 }
 .main-post-container .post-comment-section .post-comment .post-comment-content {
   color: #3f3f3f;
+  margin-left: 30px;
 }
 .main-post-container .post-comment-section .post-comment .post-comment-content .post-comment-date {
   font-size: 14px;
@@ -271,12 +325,100 @@ main {
   justify-content: space-evenly;
   column-gap: 10px;
   flex-wrap: nowrap;
+  margin-left: auto;
   border: none;
   font-size: 18px;
   color: rgb(130, 86, 143);
 }
 .main-post-container .post-comment-section .post-comment .post-comment-action i:hover {
   cursor: pointer;
+}
+.main-post-container .post-comment-section .post-comment .post-comment-action form button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: rgb(130, 86, 143);
+}
+
+.main-contact-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.main-contact-container .contact-header {
+  height: 20vh;
+  width: 100%;
+}
+.main-contact-container .contact {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #81a4d3;
+}
+.main-contact-container .contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  border-right: 1px solid rgb(130, 86, 143);
+}
+.main-contact-container .contact .contact-form .h3-header {
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+.main-contact-container .contact .contact-form form .contact-fields {
+  padding: 5px 0;
+}
+.main-contact-container .contact .contact-form form .contact-fields input {
+  padding: 10px 10px;
+  border: none;
+  background-color: #c3ddfe;
+  width: 100%;
+  outline: none;
+  resize: none;
+}
+.main-contact-container .contact .contact-form form .contact-fields input:focus {
+  border: 2px solid rgb(130, 86, 143);
+  background-color: #acc6fd;
+}
+.main-contact-container .contact .contact-form form .contact-fields textarea {
+  padding: 10px 10px;
+  border: none;
+  background-color: #c3ddfe;
+  width: 100%;
+  outline: none;
+  resize: none;
+}
+.main-contact-container .contact .contact-form form .contact-fields textarea:focus {
+  border: 2px solid rgb(130, 86, 143);
+  background-color: #acc6fd;
+}
+.main-contact-container .contact .contact-form form div .form-btn {
+  margin-top: 10px;
+}
+.main-contact-container .contact .contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+}
+.main-contact-container .contact .contact-info .h3-header {
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+.main-contact-container .contact .contact-info .contact-general-info {
+  line-height: 30px;
+  margin-bottom: 10px;
+  color: #3f3f3f;
+}
+.main-contact-container .contact .contact-info .contact-social .fa-brands {
+  font-size: 30px;
+  padding: 0 5px;
+  color: rgb(130, 86, 143);
 }
 
 footer {
