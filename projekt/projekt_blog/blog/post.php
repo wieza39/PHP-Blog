@@ -8,6 +8,39 @@ include '../includes/open_db.php';
 
 <main class="main-post-container">
     <?php
+
+
+    // Getting previous available post ID
+    $queryForPrevious = "SELECT id FROM posts WHERE id < $postID ORDER BY id DESC LIMIT 1";
+    $resultForPrevious = mysqli_query($connection, $queryForPrevious);
+    $row = mysqli_fetch_assoc($resultForPrevious);
+    $previousPostID = $row['id'];
+
+    // Getting previous available post ID
+    $queryForNext = "SELECT id FROM posts WHERE id > $postID ORDER BY id ASC LIMIT 1";
+    $resultForNext = mysqli_query($connection, $queryForNext);
+    $row = mysqli_fetch_assoc($resultForNext);
+    $nextPostID =  $row['id'];
+
+    // When on first post, get last post ID in table
+    if (!$previousPostID) {
+        $queryForLast = "SELECT id FROM posts ORDER BY id DESC LIMIT 1";
+        $resultForLast = mysqli_query($connection, $queryForLast);
+        $row = mysqli_fetch_assoc($resultForLast);
+        $previousPostID = $row['id'];
+    }
+
+    // When on last post, get first post ID in table
+    if (!$nextPostID) {
+        $queryForFirst = "SELECT id FROM posts ORDER BY id ASC LIMIT 1";
+        $resultForFirst = mysqli_query($connection, $queryForFirst);
+        $row = mysqli_fetch_assoc($resultForFirst);
+        $nextPostID = $row['id'];
+    }
+
+
+    // Search for POST
+
     $queryForPost = "SELECT * FROM posts WHERE id = $postID";
     $postResult = mysqli_query($connection, $queryForPost);
 
@@ -38,8 +71,9 @@ include '../includes/open_db.php';
         echo '</div>';
         echo '<div class="post-control-panel">';
         echo '<div class="post-control-btn"><button onclick="scrollToComment()" class="form-btn"><i class="fa-regular fa-message"></i></button></div>';
-        echo '<div class="post-control-btn"><button class="form-btn"><i class="fa-solid fa-arrow-left"></i></button></div>';
-        echo '<div class="post-control-btn"><button class="form-btn"><i class="fa-solid fa-arrow-right"></i></button></div>';
+        echo '<div class="post-control-btn"><button class="form-btn" onclick="changePost(' . $previousPostID . ')"><i class="fa-solid fa-arrow-left"></i></button></div>';
+        echo '<div class="post-control-btn"><button class="form-btn" onclick="changePost(' . $nextPostID . ')"><i class="fa-solid fa-arrow-right"></i></button></div>';
+
         echo '</div>';
         echo '</div>';
         echo '<div class="post-content">' . $content . '</div>';
@@ -138,6 +172,10 @@ include '../includes/open_db.php';
         commentSection.scrollIntoView({
             behavior: "smooth"
         });
+    }
+
+    function changePost(postID) {
+        window.location.href = "post.php?id=" + postID;
     }
 </script>
 

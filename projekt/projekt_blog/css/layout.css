@@ -7,7 +7,10 @@
 }
 
 body {
-  background-color: #a3bcf9;
+  background-image: linear-gradient(180deg, rgba(20, 20, 23, 0.6237088585) 0%, rgba(77, 83, 100, 0) 50%, rgba(31, 36, 30, 0) 100%, rgba(73, 94, 69, 0.1699273459) 100%), url("../images/ocean.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -135,7 +138,9 @@ main {
   align-items: center;
 }
 
-.login-container {
+.login-container,
+.password-container,
+.nick-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -146,37 +151,94 @@ main {
   box-shadow: 0px 0px 5px #c9cad9;
   background-color: #b3c5f4;
 }
-.login-container .h3-header {
+.login-container .h3-header,
+.password-container .h3-header,
+.nick-container .h3-header {
   margin-bottom: 30px;
 }
-.login-container .login-error {
+.login-container .login-error,
+.password-container .login-error,
+.nick-container .login-error {
   color: rgb(144, 36, 36);
 }
-.login-container .credentials-container {
+.login-container .login-message,
+.password-container .login-message,
+.nick-container .login-message {
+  color: rgb(52, 144, 36);
+}
+.login-container .credentials-container,
+.login-container .password-change,
+.login-container .nick-change,
+.password-container .credentials-container,
+.password-container .password-change,
+.password-container .nick-change,
+.nick-container .credentials-container,
+.nick-container .password-change,
+.nick-container .nick-change {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 20px 0;
 }
-.login-container .credentials-container .credentials {
+.login-container .credentials-container .credentials,
+.login-container .password-change .credentials,
+.login-container .nick-change .credentials,
+.password-container .credentials-container .credentials,
+.password-container .password-change .credentials,
+.password-container .nick-change .credentials,
+.nick-container .credentials-container .credentials,
+.nick-container .password-change .credentials,
+.nick-container .nick-change .credentials {
   padding: 10px 0;
+}
+.login-container .credentials-container .credentials input,
+.login-container .password-change .credentials input,
+.login-container .nick-change .credentials input,
+.password-container .credentials-container .credentials input,
+.password-container .password-change .credentials input,
+.password-container .nick-change .credentials input,
+.nick-container .credentials-container .credentials input,
+.nick-container .password-change .credentials input,
+.nick-container .nick-change .credentials input {
+  padding: 10px 10px;
+  border: none;
+  background-color: #c3ddfe;
+  width: 100%;
+  outline: none;
+  resize: none;
+}
+.login-container .credentials-container .credentials input:focus,
+.login-container .password-change .credentials input:focus,
+.login-container .nick-change .credentials input:focus,
+.password-container .credentials-container .credentials input:focus,
+.password-container .password-change .credentials input:focus,
+.password-container .nick-change .credentials input:focus,
+.nick-container .credentials-container .credentials input:focus,
+.nick-container .password-change .credentials input:focus,
+.nick-container .nick-change .credentials input:focus {
+  border: 2px solid rgb(130, 86, 143);
+  background-color: #acc6fd;
 }
 
 .stats-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   column-gap: 15px;
   padding: 90px 0;
+  width: 100vw;
+  background: linear-gradient(180deg, rgba(20, 20, 23, 0) 0%, rgba(20, 25, 41, 0.5788909314) 24%, rgba(69, 81, 94, 0.5872942927) 71%, rgba(31, 36, 30, 0) 90%);
 }
 .stats-container .stats-title {
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 900;
-  color: rgb(130, 86, 143);
+  color: #c6d8ff;
+  font-family: "Bebas Neue", sans-serif;
 }
 .stats-container .stats-figures table tr td {
-  padding: 0 10px;
+  color: #dcddde;
+  padding: 5px 15px;
 }
 
 .posts-container {
@@ -348,7 +410,7 @@ main {
   align-items: center;
 }
 .main-contact-container .contact-header {
-  height: 20vh;
+  height: 10vh;
   width: 100%;
 }
 .main-contact-container .contact {
@@ -356,6 +418,7 @@ main {
   justify-content: space-between;
   width: 100%;
   background-color: #81a4d3;
+  padding: 20px 0;
 }
 .main-contact-container .contact .contact-form {
   display: flex;

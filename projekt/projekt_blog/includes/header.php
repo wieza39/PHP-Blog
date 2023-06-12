@@ -1,6 +1,6 @@
 <?php
-
 session_start();
+
 if (!isset($_COOKIE['user_cookie'])) {
     setcookie('user_cookie', 'guest', time() + 60 * 5);
 }
@@ -42,6 +42,9 @@ var_dump($_COOKIE['nickname']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="../css/layout.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gasoek+One&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3901cf777d.js" crossorigin="anonymous"></script>
 
     <title>Blog Project</title>
@@ -59,19 +62,22 @@ var_dump($_COOKIE['nickname']);
                     <li><a class="menu-list-opt" href="contact.php">Contact</a></li>
 
                     <?php
-                    if ($_COOKIE['user_cookie'] != 'guest') {
-                        // User is logged in
-                        echo '<li><a href="" class="menu-list-opt profile-btn">My Profile</a>';
-                        echo '<ul class="dropdown">';
-                        echo '<li><a href="reset_password.php">Reset Password</a></li>';
-                        echo '<li><a href="">Change Nickname</a></li>';
-                        echo '</ul>';
-                        echo '</li>';
-                        echo '<li><a class="menu-list-opt" href="logout.php">Log out</a></li>';
+                    if (isset($_COOKIE['user_cookie'])) {
+                        if ($_COOKIE['user_cookie'] != 'guest') {
+                            echo '<li><a href="" class="menu-list-opt profile-btn">My Profile</a>';
+                            echo '<ul class="dropdown">';
+                            echo '<li><a href="reset_password.php">Reset Password</a></li>';
+                            echo '<li><a href="change_nick.php">Change Nickname</a></li>';
+                            echo '</ul>';
+                            echo '</li>';
+                            echo '<li><a class="menu-list-opt" href="logout.php">Log out</a></li>';
+                        } else {
+                            echo '<li><a class="menu-list-opt" id="login-btn" href="login.php">Login</a></li>';
+                        }
                     } else {
-                        // Guest
                         echo '<li><a class="menu-list-opt" id="login-btn" href="login.php">Login</a></li>';
                     }
+
                     ?>
                 </ul>
             </div>

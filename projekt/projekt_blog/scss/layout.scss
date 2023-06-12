@@ -9,7 +9,18 @@
 }
 
 body {
-	background-color: $bg-color;
+	//background-color: $bg-color;
+	background-image: linear-gradient(
+			180deg,
+			rgba(20, 20, 23, 0.6237088585434174) 0%,
+			rgba(77, 83, 100, 0) 50%,
+			rgba(31, 36, 30, 0) 100%,
+			rgba(73, 94, 69, 0.16992734593837533) 100%
+		),
+		url("../images/ocean.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
@@ -77,7 +88,7 @@ nav {
 							z-index: 2;
 							background-color: $bg-element;
 							margin-top: 15px;
-							
+
 							li {
 								a {
 									margin-top: 5px;
@@ -116,7 +127,7 @@ nav {
 								z-index: 2;
 								background-color: $bg-element;
 								margin-top: 15px;
-								
+
 								li {
 									a {
 										margin-top: 5px;
@@ -157,8 +168,10 @@ main {
 	align-items: center;
 }
 
-// LOGIN CSS
-.login-container {
+// LOGIN AND PASSWORD CHANGE
+.login-container,
+.password-container,
+.nick-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -176,8 +189,13 @@ main {
 	.login-error {
 		color: rgb(144, 36, 36);
 	}
+	.login-message {
+		color: rgb(52, 144, 36);
+	}
 
-	.credentials-container {
+	.credentials-container,
+	.password-change,
+	.nick-change {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -186,6 +204,20 @@ main {
 
 		.credentials {
 			padding: 10px 0;
+
+			input {
+				padding: 10px 10px;
+				border: none;
+				background-color: $text-area;
+				width: 100%;
+				outline: none;
+				resize: none;
+			}
+
+			input:focus {
+				border: 2px solid $violet;
+				background-color: $text-area-focus;
+			}
 		}
 	}
 }
@@ -193,22 +225,32 @@ main {
 //MAIN PAGE
 .stats-container {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	column-gap: 15px;
 	padding: 90px 0;
+	width: 100vw;
+	background: linear-gradient(
+		180deg,
+		rgba(20, 20, 23, 0) 0%,
+		rgba(20, 25, 41, 0.578890931372549) 24%,
+		rgba(69, 81, 94, 0.5872942927170868) 71%,
+		rgba(31, 36, 30, 0) 90%
+	);
 
 	.stats-title {
-		font-size: 30px;
+		font-size: 50px;
 		font-weight: 900;
-		color: $violet;
+		color: $stats-title;
+		font-family: "Bebas Neue", sans-serif;
 	}
 
 	.stats-figures {
 		table {
 			tr {
 				td {
-					padding: 0 10px;
+					color: #dcddde;
+					padding: 5px 15px;
 				}
 			}
 		}
@@ -431,7 +473,7 @@ main {
 	align-items: center;
 
 	.contact-header {
-		height: 20vh;
+		height: 10vh;
 		width: 100%;
 	}
 
@@ -440,6 +482,7 @@ main {
 		justify-content: space-between;
 		width: 100%;
 		background-color: #81a4d3;
+		padding: 20px 0;
 
 		.contact-form {
 			display: flex;
