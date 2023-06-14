@@ -50,6 +50,7 @@ include '../includes/open_db.php';
         $user_id = $row['user_id'];
         $created_at = $row['created_at'];
         $content = $row['content'];
+        $background = $row['background'];
 
         $queryForAuthor = "SELECT nickname FROM users WHERE id = $user_id";
         $authorResult = mysqli_query($connection, $queryForAuthor);
@@ -63,16 +64,16 @@ include '../includes/open_db.php';
             $nickname = "Unknown";
         }
 
-        echo '<div class="post-header">';
+        echo '<div class="post-header" style="background-image: url(\'../images/' . $background . '\');">';
         echo '<div class="post-bio">';
         echo '<div class="post-title"><h1>' . $title . '</h1></div>';
         echo '<div class="post-author">' . $nickname . '</div>';
         echo '<div class="post-date">' . $created_at . '</div>';
         echo '</div>';
         echo '<div class="post-control-panel">';
-        echo '<div class="post-control-btn"><button onclick="scrollToComment()" class="form-btn"><i class="fa-regular fa-message"></i></button></div>';
-        echo '<div class="post-control-btn"><button class="form-btn" onclick="changePost(' . $previousPostID . ')"><i class="fa-solid fa-arrow-left"></i></button></div>';
-        echo '<div class="post-control-btn"><button class="form-btn" onclick="changePost(' . $nextPostID . ')"><i class="fa-solid fa-arrow-right"></i></button></div>';
+        echo '<div class="post-control-btn"><button onclick="scrollToComment()" class="control-btn"><i class="fa-regular fa-message"></i></button></div>';
+        echo '<div class="post-control-btn"><button class="control-btn" onclick="changePost(' . $previousPostID . ')"><i class="fa-solid fa-arrow-left"></i></button></div>';
+        echo '<div class="post-control-btn"><button class="control-btn" onclick="changePost(' . $nextPostID . ')"><i class="fa-solid fa-arrow-right"></i></button></div>';
 
         echo '</div>';
         echo '</div>';

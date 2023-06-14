@@ -1,13 +1,18 @@
 $bg-color: #a3bcf9;
 //$bg-color2: #354d6a;
-$nav: #7796cb;
+$nav: rgb(119, 150, 203, 0.9);
 $grey: #c9cad9;
 $light-violet: #d1d2f9;
-$violet: rgb(130, 86, 143);
-$text: #3f3f3f;
+$violet: #82568f;
+$text: #fdfdfd;
 $bg-element: #b3c5f4;
 $text-area: #c3ddfe;
 $text-area-focus: #acc6fd;
 
 
-$stats-title: #c6d8ff;
+$stats-title: rgb(198, 216, 255);
+$stats-title-shd: rgb(198, 216, 255, 0.4);
+$deep-blue: #354f85ae;
+$vio-grad: linear-gradient(180deg, rgba(130,86,143,0.6237088585434174) 0%, rgba(130,86,143,0.7329525560224089) 50%, rgba(130,86,143,0.6153054971988796) 100%);
+$blue-grad: radial-gradient(circle, rgba(198,216,255,0.4360337885154062) 0%, rgba(198,216,255,0.5228685224089635) 50%, rgba(198,216,255,0) 100%);
+$text-shadow: rgba(48, 48, 48, 0.5);

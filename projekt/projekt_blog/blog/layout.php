@@ -11,15 +11,15 @@ $result = mysqli_query($connection, $query);
             <table>
                 <tr>
                     <td class="stats-label">Yearly plastic discard: </td>
-                    <td class="stats-number">8 300 000 mln</td>
+                    <td class="stats-number">8 300 000 mln tons</td>
                 </tr>
                 <tr>
                     <td class="stats-label">Percentage caught</td>
-                    <td class="stats-number"></td>
+                    <td class="stats-number"> &lt; 1% (83 000 tons) </td>
                 </tr>
                 <tr>
                     <td class="stats-label">Percentage of recyclied</td>
-                    <td class="stats-number"></td>
+                    <td class="stats-number">too little</td>
                 </tr>
             </table>
         </div>
@@ -35,13 +35,17 @@ $result = mysqli_query($connection, $query);
                 $title = $row['title'];
                 $date = $row['created_at'];
                 $summary = $row['summary'];
+                $background = $row['background'];
 
-                echo '<div class="post-box"><a href="post.php?id=' . $postID . '">';
-                echo '<div class="post-box-header">';
+
+                echo '<div class="post-box" style="background-image: url(\'../images/' . $background . '\');"><a href="post.php?id=' . $postID . '">';
+                echo '<div class="post-box-header" >';
                 echo '<div class="post-box-title">' . $title . '</div>';
-                echo '<div class="post-box-date">' . $date . '</div>';
                 echo '</div>';
+                echo '<div class="post-content" >';
+                echo '<div class="post-box-date">' . $date . '</div>';
                 echo '<div class="post-box-text">' . $summary . '</div>';
+                echo '</div>';
                 echo '</a></div>';
             }
         }

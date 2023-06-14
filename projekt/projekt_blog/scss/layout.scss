@@ -34,26 +34,38 @@ a {
 	border: 2px solid $violet;
 	height: 40px;
 	width: 100px;
-	color: $violet;
+	//	color: $violet;
 	font-weight: 500;
 	text-transform: uppercase;
-	background-color: $bg-element;
+	//	background-color: $bg-element;
 	transition: 0.3s;
+	background-color: transparent;
+	color: $text;
+	border: 2px solid $stats-title;
 }
 
 .form-btn:hover {
-	border: 2px solid $bg-color;
-	color: $bg-element;
-	background-color: $violet;
+	border: 1px solid $bg-color;
+	color: #303030;
+	background-color: rgb(198, 216, 255, 0.7);
+	font-weight: 700;
 }
 
 nav {
-	background-color: $nav;
+	position: fixed;
+	z-index: 3;
+	background: linear-gradient(
+		180deg,
+		rgba(48, 48, 48, 0.8421962535014006) 0%,
+		rgba(48, 48, 48, 0.29037552521008403) 74%,
+		rgba(48, 48, 48, 0) 100%
+	);
 	height: 50px;
 	width: 100%;
 	text-transform: uppercase;
 
 	.nav-bar {
+		margin: 20px 0;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -67,6 +79,7 @@ nav {
 		}
 
 		.home-btn:hover {
+			font-size: 35px;
 			color: $violet;
 		}
 
@@ -81,13 +94,14 @@ nav {
 					.dropdown {
 						display: none;
 						list-style-type: none;
+						transition: 0.3s;
 
 						&:hover {
 							display: block;
 							position: absolute;
 							z-index: 2;
-							background-color: $bg-element;
-							margin-top: 15px;
+							background-color: $deep-blue;
+							margin-top: 5px;
 
 							li {
 								a {
@@ -95,7 +109,8 @@ nav {
 									padding: 5px 5px;
 									font-size: 14px;
 									list-style-type: none;
-									color: $violet;
+									color: $stats-title;
+									transition: 0.3s;
 								}
 
 								a:hover {
@@ -110,23 +125,25 @@ nav {
 					}
 
 					.menu-list-opt {
-						padding: 20px 10px;
+						padding: 10px 10px;
 						font-size: 14px;
 						color: $light-violet;
 						transition: 0.3s;
 
 						&:hover {
-							background-color: $violet;
-							padding: 20px 10px;
-							color: $light-violet;
+							background: $blue-grad;
+							padding: 5px 10px;
+							color: $violet;
+							font-weight: bold;
 
 							~ .dropdown,
 							.dropdown:hover {
 								display: block;
 								position: absolute;
 								z-index: 2;
-								background-color: $bg-element;
-								margin-top: 15px;
+								background-color: $deep-blue;
+								margin-top: 5px;
+								transition: 0.2s;
 
 								li {
 									a {
@@ -145,14 +162,16 @@ nav {
 					}
 
 					#login-btn {
-						color: $violet;
+						//color: $violet;
+						border: 3px solid $stats-title;
 						transition: 0.3s;
 					}
 
 					#login-btn:hover {
-						background-color: $violet;
+						border: 1px solid $stats-title;
+						font-weight: bold;
 						padding: 5px 30px;
-						color: $light-violet;
+						color: $stats-title;
 					}
 				}
 			}
@@ -179,15 +198,19 @@ main {
 	padding: 30px auto;
 	width: 30%;
 	text-transform: uppercase;
-	box-shadow: 0px 0px 5px $grey;
-	background-color: $bg-element;
+	border: 2px solid $stats-title;
+	box-shadow: 0px 0px 5px  $grey;
+	background-color: $text-shadow;
+	
 
 	.h3-header {
-		margin-bottom: 30px;
+		margin: 20px 0;
+		color: $text;
+		font-size: 30px;
 	}
 
 	.login-error {
-		color: rgb(144, 36, 36);
+		color: rgb(223, 156, 156);
 	}
 	.login-message {
 		color: rgb(52, 144, 36);
@@ -206,17 +229,24 @@ main {
 			padding: 10px 0;
 
 			input {
+				color: $stats-title;
 				padding: 10px 10px;
 				border: none;
-				background-color: $text-area;
+				background-color: transparent;
 				width: 100%;
 				outline: none;
+				border: 2px solid $stats-title;
 				resize: none;
 			}
 
+			input:hover,
 			input:focus {
-				border: 2px solid $violet;
-				background-color: $text-area-focus;
+				border: 1px solid $stats-title;
+				background-color: $rgb(198, 216, 255, 0.7);
+			}
+
+			input::placeholder {
+				color: $stats-title;
 			}
 		}
 	}
@@ -239,7 +269,7 @@ main {
 	);
 
 	.stats-title {
-		font-size: 50px;
+		font-size: 53px;
 		font-weight: 900;
 		color: $stats-title;
 		font-family: "Bebas Neue", sans-serif;
@@ -249,8 +279,14 @@ main {
 		table {
 			tr {
 				td {
+					font-family: "Bebas Neue", sans-serif;
+					font-size: 25px;
 					color: #dcddde;
 					padding: 5px 15px;
+				}
+
+				.stats-number {
+					color: $light-violet;
 				}
 			}
 		}
@@ -269,40 +305,72 @@ main {
 		min-width: 40vh;
 		flex: 2 0 calc(33.33% - 40px);
 		max-width: calc(33.33% - 40px);
-		height: 200px;
+		height: 300px;
 		margin: 15px 20px;
 		overflow: hidden;
-		box-shadow: 0 0 5px $light-violet;
-		background-color: $bg-element;
+		box-shadow: 0 0 10px 5px $text-shadow;
 		transition: 0.3s;
+		background-size: cover;
+		background-position: center;
 
 		a {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+
 			.post-box-header {
 				display: flex;
-				justify-content: space-between;
+				flex-direction: column;
+				height: 120px;
+				background: $text-shadow;
 
 				.post-box-title {
 					padding: 15px 20px;
-					color: $violet;
+					color: $text;
+					font-size: 26px;
+					text-shadow: 2px 2px 5px #303030;
 					text-transform: uppercase;
 					font-weight: 700;
 				}
-				.post-box-date {
-					padding: 15px 20px;
-				}
 			}
 
-			.post-box-text {
-				padding: 0 20px;
-				text-align: justify;
-				color: $text;
-				padding-bottom: 20px;
+			.post-content {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				background: $text-shadow;
+
+				.post-box-date {
+					padding: 5px 20px;
+					color: $text;
+					font-size: 12px;
+				}
+
+				.post-box-text {
+					padding: 10px 20px;
+					text-align: justify;
+					height: 200px;
+					color: $text;
+					text-shadow: 2px 2px 10px #303030;
+					font-size: 20px;
+					padding-bottom: 20px;
+				}
 			}
 		}
 	}
 
 	.post-box:hover {
-		background-color: #c6d5fb;
+		box-shadow: 0 0 10px 1px $stats-title-shd;
+
+		a {
+			.post-box-header {
+				background: none;
+			}
+
+			.post-content {
+				background: none;
+			}
+		}
 	}
 }
 
@@ -310,48 +378,73 @@ main {
 
 //POST
 .main-post-container {
-	justify-content: flex-start;
-	align-items: flex-start;
+	justify-content: center;
+	align-items: center;
 	padding-bottom: 40px;
 
 	.post-header {
 		display: flex;
 		padding: 80px 100px 0 100px;
+		height: 350px;
 		width: 100vw;
 		justify-content: space-between;
 		align-items: flex-end;
+		background-size: cover;
+		background-position: center;
 
 		.post-bio {
+			margin-bottom: 30px;
 			.post-title {
-				color: $violet;
+				color: $text;
+				text-shadow: 2px 2px 5px #303030;
 			}
 
 			.post-author {
-				font-size: 12px;
+				font-size: 20px;
+				color: $text;
+				text-shadow: 0px 2px 5px 5px #303030;
 			}
 
 			.post-date {
-				font-size: 10px;
+				font-size: 14px;
 				color: $text;
+				text-shadow: 0px 2px 5px 5px #303030;
 			}
 		}
 
 		.post-control-panel {
 			display: flex;
 			column-gap: 15px;
+			margin-bottom: 30px;
+			background-color: $blue-grad;
 
 			.post-control-btn {
-				border: 1px solid $violet;
-				button {
+				border: 1px solid $text;
+
+				.control-btn {
+					width: 50px;
+					height: 50px;
+					background-color: transparent;
+					color: $text;
+					border: none;
 					i {
 						font-size: 20px;
 					}
+				}
+
+				.control-btn:hover {
+					background-color: rgb(198, 216, 255, 0.6);
+					color: #303030;
+					border: 1px solid #303030;
 				}
 			}
 		}
 	}
 
 	.post-content {
+		background: $text-shadow;
+		line-height: 30px;
+		letter-spacing: 1px;
 		padding: 50px 0;
 		text-align: justify;
 		color: $text;
@@ -363,8 +456,8 @@ main {
 	//NEW
 	.post-comment-section {
 		padding: 0 10px;
-		border-top: 2px solid $violet;
-		background-color: $nav;
+		border-top: 2px solid $stats-title;
+		background-color: $deep-blue;
 
 		.post-new-comment {
 			padding: 0 100px;
@@ -372,11 +465,13 @@ main {
 			.post-new-comment-header {
 				.post-new-comment-author {
 					padding: 10px 0;
+					color: $text;
 
 					#comment-user {
 						text-transform: uppercase;
 						font-weight: 700;
-						color: $violet;
+						color: $stats-title;
+						text-shadow: 0 0 2px 4px $stats-title-shd;
 					}
 				}
 			}
@@ -407,13 +502,13 @@ main {
 			display: flex;
 			width: 100vw;
 			border-top: 3px solid $bg-color;
-			background-color: $bg-element;
+			background-color: $nav;
 			padding: 40px 100px;
 			margin: 5px 0;
 
 			.post-comment-header {
 				width: 150px;
-				border-right: 1px solid $violet;
+				border-right: 1px solid $stats-title;
 				.post-comment-profile-img {
 					width: 50px;
 					height: 50px;
@@ -423,16 +518,20 @@ main {
 					padding-right: 10px;
 					text-transform: uppercase;
 					font-weight: 700;
-					color: $violet;
+					color: $stats-title;
 				}
 			}
 
 			.post-comment-content {
-				color: $text;
+				color: #fff;
+			
 				margin-left: 30px;
+				text-shadow: $text-shadow;
+
 
 				.post-comment-date {
-					font-size: 14px;
+					font-size: 12px;
+					color: #303030;
 					padding: 5px 0;
 				}
 			}
@@ -445,7 +544,8 @@ main {
 				margin-left: auto;
 				border: none;
 				font-size: 18px;
-				color: $violet;
+				color: $stats-title;
+		
 
 				i:hover {
 					cursor: pointer;
@@ -570,7 +670,7 @@ footer {
 	margin-top: 5px;
 	bottom: 0;
 	width: 100%;
-	height: 40px;
+	height: 20px;
 	background-color: $nav;
 	display: flex;
 	justify-content: center; /* Center horizontally */
@@ -578,7 +678,7 @@ footer {
 
 	.footer-text {
 		text-align: center;
-		color: $light-violet;
+		color: $stats-title;
 		font-size: 12px;
 	}
 }

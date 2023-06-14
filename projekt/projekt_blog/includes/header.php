@@ -51,14 +51,12 @@ var_dump($_COOKIE['nickname']);
 </head>
 
 <body>
-
     <nav>
         <div class="nav-bar">
             <a class="home-btn" href="blog.php"><i class="fa-brands fa-gitkraken"></i></a>
             <div class="menu">
                 <ul class="menu-list">
                     <li><a class="menu-list-opt" href="blog.php">Home</a></li>
-                    <li><a class="menu-list-opt" href="rules.php">Rules</a></li>
                     <li><a class="menu-list-opt" href="contact.php">Contact</a></li>
 
                     <?php
