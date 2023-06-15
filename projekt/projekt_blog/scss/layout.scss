@@ -199,9 +199,8 @@ main {
 	width: 30%;
 	text-transform: uppercase;
 	border: 2px solid $stats-title;
-	box-shadow: 0px 0px 5px  $grey;
+	box-shadow: 0px 0px 5px $grey;
 	background-color: $text-shadow;
-	
 
 	.h3-header {
 		margin: 20px 0;
@@ -448,7 +447,6 @@ main {
 		padding: 50px 50px;
 		text-align: justify;
 		color: $text;
-		padding: 40 100px;
 	}
 
 	//COMMENTS
@@ -524,10 +522,9 @@ main {
 
 			.post-comment-content {
 				color: #fff;
-			
+
 				margin-left: 30px;
 				text-shadow: $text-shadow;
-
 
 				.post-comment-date {
 					font-size: 12px;
@@ -545,7 +542,6 @@ main {
 				border: none;
 				font-size: 18px;
 				color: $stats-title;
-		
 
 				i:hover {
 					cursor: pointer;
