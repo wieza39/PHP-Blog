@@ -17,20 +17,20 @@ if (!isset($_COOKIE['nickname'])) {
     setcookie('nickname', 'guest', time() + 60 * 5);
 }
 
-echo " cookie user: ";
-var_dump($_COOKIE['user_cookie']);
+// echo " cookie user: ";
+// var_dump($_COOKIE['user_cookie']);
 
-echo " <br> cookie user_id: ";
-var_dump($_COOKIE['user_id']);
+// echo " <br> cookie user_id: ";
+// var_dump($_COOKIE['user_id']);
 
-echo ' <br> cookie login status: ';
-var_dump($_COOKIE['login_status']);
+// echo ' <br> cookie login status: ';
+// var_dump($_COOKIE['login_status']);
 
-echo ' <br> cookie user role: ';
-var_dump($_COOKIE['role']);
+// echo ' <br> cookie user role: ';
+// var_dump($_COOKIE['role']);
 
-echo ' <br> cookie user nickname: ';
-var_dump($_COOKIE['nickname']);
+// echo ' <br> cookie user nickname: ';
+// var_dump($_COOKIE['nickname']);
 
 ?>
 <!DOCTYPE html>
