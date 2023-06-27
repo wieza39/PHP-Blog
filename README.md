@@ -1,4 +1,4 @@
-# WPRG-s24279
+# Blog project
 
 This is my project of website, where I used mostly html, css (scss), a bit of JS and plain PHP for backend. Website runs on MySQL from XAMPP.
 Front-end part was just for better visual effects and keep a project pleasing for an eye. Main aim of it was to implement some backend functionalities. All data are managed by cookies and database in MySQL, which was set locally. To have better insight, let's look at screenshots divided it into section:
